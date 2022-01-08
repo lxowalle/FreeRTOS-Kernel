@@ -149,7 +149,7 @@ extern void vAssertCalled( const char * const pcFileName,
  * configASSERT() when performing code coverage tests though, as it is not
  * intended to asserts() to fail, some some code is intended not to run if no
  * errors are present. */
-    #define configASSERT( x )    //if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
+    #define configASSERT( x )    if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
 
     #define configUSE_MALLOC_FAILED_HOOK    1
 #endif /* if ( projCOVERAGE_TEST == 1 ) */
